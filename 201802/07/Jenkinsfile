@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build image') {
 	    steps {
-		app = docker.build("Calavera2/201802/07")
+		sh './build.sh'
 	    }
         }
      
