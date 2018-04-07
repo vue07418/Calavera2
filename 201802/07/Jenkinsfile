@@ -1,11 +1,16 @@
 pipeline { 
-    agent any 
+    agent { dockerfile true } 
     stages {
-        stage('Build') { 
+        stage('Clone repository') { 
             steps { 
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/vue07418/Calavera2.git']]])
-                sh 'docker build -t lars2804/nde-web-app .' 
+               
             }
+
+        stage('Build image') {
+	    steps {
+		app = docker.build("Calavera2/201802/07")
+	    }
         }
     }
 }
