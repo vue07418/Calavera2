@@ -6,13 +6,14 @@ pipeline {
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/vue07418/Calavera2.git']]])
                
             }
+        }
 
         stage('Build image') {
 	    steps {
 		app = docker.build("Calavera2/201802/07")
 	    }
         }
-      }
+     
     }
 }
 
