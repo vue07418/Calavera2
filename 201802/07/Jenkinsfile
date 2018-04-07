@@ -12,6 +12,7 @@ pipeline {
 		app = docker.build("Calavera2/201802/07")
 	    }
         }
+      }
     }
 }
 
