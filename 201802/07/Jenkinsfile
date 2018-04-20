@@ -4,19 +4,7 @@ pipeline {
         stage('Clone repository') { 
             steps { 
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/vue07418/Calavera2.git']]])
-                sh 'docker build -t lars2804/nde-web-app .'
-            }
-        }
-
-        stage('Test') {
-	    steps {
-		sh './test.sh'
-	    }
-        }
-
-        stage('Deploy') {
-            steps {
-                sh './run.sh'
+               
             }
         }
      
