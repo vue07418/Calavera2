@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('Clone repository') { 
             steps { 
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/vue07418/Calavera2.git']]])
-               
+		git 'https://github.com/vue07418/Calavera2.git'
             }
         }
      
