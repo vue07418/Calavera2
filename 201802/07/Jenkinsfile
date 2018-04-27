@@ -1,12 +1,21 @@
 pipeline { 
-    agent any
-    stages {
-        stage('Clone repository') { 
-            steps { 
-		git 'https://github.com/vue07418/Calavera2.git'
-            }
-        }
+	agent {
+		docker { image 'node:carbon' }
+	}
+	
+        stages {
+               stage('Clone repository') { 
+                        steps { 
+		                git 'https://github.com/vue07418/Calavera2.git'
+                        }
+                }
+		stage('Test') {
+			steps {
+				sh 'node --version'
+			}
+		}
      
-    }
+        }
+	
 }
 
