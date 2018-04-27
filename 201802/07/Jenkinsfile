@@ -1,21 +1,5 @@
-pipeline { 
-	agent { dockerfile true }
-	
-        stages {
-               stage('Clone repository') { 
-                        steps { 
-		                git 'https://github.com/vue07418/Calavera2.git'
-			}
-		}
-		
-		stage('Test') {
-			steps {
-				sh 'node --version'
-				sh 'svn --version'
-			}
-		}
-     
-        }
-	
+node {
+  checkout scm
+  sh "docker build -t lars2804/nde-web-app ."
 }
 
