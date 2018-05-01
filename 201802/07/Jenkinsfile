@@ -20,6 +20,7 @@ node {
 
         app.inside {
             sh 'npm test'
+            sh 'run.sh'
             sh 'test.sh'
         }
     }
