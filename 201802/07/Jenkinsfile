@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("lars2804/nde-web-app")
+            sh 'docker build -t lars2804/nde-web-app .'
     }
 
     stage('Test image') {
